@@ -1,0 +1,11 @@
+<h1><%= "Show #{@girl.name} products" %></h1>
+
+<% @girl.products.each do |p| %>
+    <%= render_product_photo(p.main_photo) %>
+    <%= link_to p.title, product_path(p) %>
+    <%= p.description %>
+    <%= p.price %>
+    <%= p.quantity %>
+    <%= link_to "edit", edit_product_path(p) %>
+    <%= link_to "destroy", product_path(p), method: :delete %>
+<%end %>

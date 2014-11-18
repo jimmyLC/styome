@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :products
+  resources :girls
 
 
   root :to => "products#index"
