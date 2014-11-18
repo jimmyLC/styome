@@ -7,6 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav>
+    <ul>
+      <% if current_user %>
+        <li>
+          <%= "Hi! #{current_user.email}" %>
+          <%= link_to("logout", destroy_user_session_path, method: :delete) %>
+        </li>
+        <li>
+          <%= link_to("edit password", edit_registration_path(:user)) %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to("sign up", new_registration_path(:user)) %>
+        </li>
+        <li>
+          <%= link_to("sign in", new_session_path(:user)) %>
+        </li>
+      <% end %>
+  </nav>
 
 <%= yield %>
 
