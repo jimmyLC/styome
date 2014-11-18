@@ -6,5 +6,7 @@
     <%= f.simple_fields_for :photos do |p| %>
       <%= p.input :images, :as => :file %>
     <% end %>
+
+    <%= f.association :girl, as: :radio_buttons %>
   <%= f.button :submit %>
 <% end %>

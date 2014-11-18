@@ -1,6 +1,6 @@
 <h1>show girl</h1>
 <% @girls.each do |g| %>
-  <%= g.name %>
+  <%= link_to g.name, girl_path(g) %>
 <% end %>
 
 <h1>show product</h1>
