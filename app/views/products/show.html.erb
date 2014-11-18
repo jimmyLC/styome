@@ -1,0 +1,5 @@
+<h1>show product</h1>
+
+<% @photos.each do |photo| %>
+  <%= image_tag photo.images.url(:medium) %>
+<% end %>

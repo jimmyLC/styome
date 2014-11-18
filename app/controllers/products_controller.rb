@@ -4,10 +4,13 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @girls = Girl.all
+
     @product = Product.new
+    @photo = @product.photos.new
   end
 
   def show
+    @photos = @product.photos
   end
 
   def new
@@ -46,6 +49,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:title, :description, :price, :quantity)
+    params.require(:product).permit(:title, :description, :price, :quantity,:photos_attributes => [:images] )
   end
 end

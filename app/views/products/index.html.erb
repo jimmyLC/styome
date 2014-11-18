@@ -6,7 +6,7 @@
 <h1>show product</h1>
 <% @products.each do |p| %>
   <div>
-    <%= p.title %>
+    <%= link_to p.title, product_path(p) %>
     <%= p.description %>
     <%= p.price %>
     <%= p.quantity %>

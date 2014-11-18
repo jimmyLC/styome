@@ -3,5 +3,8 @@
   <%= f.input :description, label: "description: " %>
   <%= f.input :price, label: "price: " %>
   <%= f.input :quantity, label: "quantity: " %>
+    <%= f.simple_fields_for :photos do |p| %>
+      <%= p.input :images, :as => :file %>
+    <% end %>
   <%= f.button :submit %>
 <% end %>
