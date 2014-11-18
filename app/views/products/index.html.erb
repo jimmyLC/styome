@@ -6,6 +6,7 @@
 <h1>show product</h1>
 <% @products.each do |p| %>
   <div>
+    <%= render_product_photo(p.main_photo) %>
     <%= link_to p.title, product_path(p) %>
     <%= p.description %>
     <%= p.price %>
