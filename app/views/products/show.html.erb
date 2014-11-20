@@ -1,5 +1,14 @@
 <h1>show product</h1>
 
-<% @photos.each do |photo| %>
-  <%= image_tag photo.images.url(:medium) %>
+<%= render_product_photo(@product.main_photo) %>
+<%= link_to "加入購物車", add_to_cart_product_path(@product) %>
+
+<ul><% @photos.each do |photo| %>
+  <li><%= image_tag photo.images.url(:medium) %></li>
 <% end %>
+</ul>
+
+
+
+
+
