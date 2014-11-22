@@ -5,10 +5,6 @@ Rails.application.routes.draw do
     resources :girls
   end
 
-  namespace :managers do
-    resources :girls
-  end
-
   resources :products do
     member do
       post :add_to_cart
