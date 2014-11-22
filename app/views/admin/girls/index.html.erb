@@ -1,0 +1,18 @@
+<p>this is admin page</p>
+<h1>All girls</h1>
+
+<% @girls.each do |g| %>
+  <%= link_to g.name %>
+  <%= "user_id: #{g.user_id}"%>
+  <%= link_to "edit", edit_admin_girl_path(g) %>
+  <%= link_to "destroy", admin_girl_path(g), method: :delete %></br>
+<% end %>
+
+
+
+<h1>Add new girl</h1>
+<%= simple_form_for [:admin, @girl] do |f| %>
+  <%= f.input :name, label: "Name: " %>
+  <%= f.input :user_id, label: "User:" %>
+  <%= f.button :submit %>
+<% end %>

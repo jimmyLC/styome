@@ -1,0 +1,5 @@
+<%= simple_form_for [:admin, @girl] do |f| %>
+  <%= f.input :name, label: "Name: " %>
+  <%= f.input :user_id, label: "User:" %>
+  <%= f.button :submit %>
+<% end %>
