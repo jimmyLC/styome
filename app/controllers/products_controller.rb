@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :find_params, only: [:show, :edit, :update, :destroy]
+  before_action :find_params, only: [:add_to_cart, :show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   def index
     @products = Product.all
