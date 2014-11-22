@@ -1,0 +1,19 @@
+<%= "Hi! this is #{@girl.name} manager page" %>
+
+
+<h1>show product</h1>
+<% @products.each do |p| %>
+  <div>
+    <%= render_product_photo(p.main_photo) %>
+    <%= link_to p.title, manager_girl_product_path(@girl, p) %>
+    <%= p.girl.name %>
+    <%= p.description %>
+    <%= p.price %>
+    <%= p.quantity %>
+    <%= link_to "edit", edit_manager_girl_product_path(@girl, p) %>
+    <%= link_to "destroy", manager_girl_product_path(@girl, p), method: :delete %>
+  </div>
+<% end %>
+
+<h1>Create Product</h1>
+<%= render "form" %>

@@ -1,0 +1,11 @@
+<%= simple_form_for [:manager, @girl, @product] do |f| %>
+  <%= f.input :title, label: "product name: " %>
+  <%= f.input :description, label: "description: " %>
+  <%= f.input :price, label: "price: " %>
+  <%= f.input :quantity, label: "quantity: " %>
+    <%= f.simple_fields_for :photos do |p| %>
+      <%= p.input :images, :as => :file %>
+    <% end %>
+
+  <%= f.button :submit %>
+<% end %>
