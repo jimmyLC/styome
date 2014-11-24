@@ -13,9 +13,6 @@ class ProductsController < ApplicationController
     @photos = @product.photos
   end
 
-  def new
-  end
-
   def create
     @product = Product.create(product_params)
     if @product.save
@@ -43,7 +40,8 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
-
+    @product = Product.find(params[:id])
+    current_cart.add_product_to_cart
   end
 
   private
