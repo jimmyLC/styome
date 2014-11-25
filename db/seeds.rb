@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Product.create!(title: "混色運動感立領鋪棉背心",
+                description: "酷酷個性混色背心，搭配暗色系列更出眾。",
+                price: 880,
+                quantity: 2)
