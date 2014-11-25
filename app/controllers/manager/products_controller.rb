@@ -6,6 +6,7 @@ class Manager::ProductsController < ApplicationController
   def index
     @products = @girl.products.all
     @product = Product.new
+    @photo = @product.photos.new
   end
 
   def show

@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
     @girls = Girl.all
 
     @product = Product.new
-    @photo = @product.photos.new
+    @photo = @product.photos.build
   end
 
   def show
@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @photo = @product.photos.build
 
   end
 
