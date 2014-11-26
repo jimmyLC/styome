@@ -27,8 +27,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :development do
   gem 'better_errors'
   gem 'spring'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
 end
 
+gem 'mysql2'
 gem 'bootstrap-sass', '~> 3.3.1'
 
 gem 'simple_form'
