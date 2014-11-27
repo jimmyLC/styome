@@ -1,0 +1,7 @@
+<h1>your Oder</h1>
+
+<% @orders.each do |o| %>
+  <%= o.receive_name %>
+  <%= o.receive_address %>
+  <%= o.payment_type %>
+<% end %>

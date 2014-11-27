@@ -1,0 +1,10 @@
+<%= render "/common/cart" %>
+
+<h1>New a order</h1>
+
+<%= simple_form_for @order do |f| %>
+  <%= f.input :receive_name, label: "name: " %>
+  <%= f.input :receive_address, label: "address: " %>
+  <%= f.input :payment_type, collection: [ ["信用卡", "credit_card"], ["ATM轉帳", "atm"] ]%>
+  <%= f.button :submit %>
+<% end %>

@@ -38,6 +38,10 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "購物車(count)", cart_path(current_cart) %></li>
       </ul>
+      <!-- 訂單 -->
+      <ul class="nav navbar-nav">
+        <li><%= link_to "訂單", orders_path %></li>
+      </ul>
       <!-- 管理者 -->
       <ul class="nav navbar-nav">
         <li><%= link_to("Manager", manager_girl_products_path(1))%></li>

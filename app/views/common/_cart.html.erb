@@ -1,0 +1,5 @@
+<h1>Cart</h1>
+<% current_cart.items.each do |i| %>
+  產品名稱: <%= i[:product_id] %>
+  數量: <%= i[:quantity] %>
+<% end %>
