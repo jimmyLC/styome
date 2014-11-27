@@ -19,9 +19,8 @@ class OrdersController < ApplicationController
                                 amount: p[:amount] )
     end
 
-    current_cart.clear
-
     if @order.save
+      current_cart.clear
       redirect_to root_path
     else
       render :new
