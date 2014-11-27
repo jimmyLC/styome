@@ -13,8 +13,10 @@
     <%= p.quantity %>
     <%= link_to "edit", edit_product_path(p) %>
     <%= link_to "destroy", product_path(p), method: :delete %>
+    <%= button_to "加入購物車", cart_path(product_id: p.id, quantity: 1) %>
   </div>
 <% end %>
 
 <h1>create product</h1>
 <%= render "form" %>
+<%= render "/common/cart" %>

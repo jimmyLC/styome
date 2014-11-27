@@ -11,40 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126131727) do
+ActiveRecord::Schema.define(version: 20141121092828) do
 
   create_table "girls", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-  end
-
-  create_table "order_infos", force: true do |t|
-    t.integer  "order_id"
-    t.string   "billing_name"
-    t.string   "billing_address"
-    t.string   "shopping_name"
-    t.string   "shopping_address"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "order_items", force: true do |t|
-    t.string   "product_name"
-    t.integer  "price"
-    t.integer  "quantity"
-    t.integer  "order_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "orders", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "total",      default: 0
-    t.boolean  "paid",       default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "photos", force: true do |t|
@@ -84,7 +57,7 @@ ActiveRecord::Schema.define(version: 20141126131727) do
     t.boolean  "admin_id",               default: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

@@ -11,12 +11,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products do
-    member do
-      post :add_to_cart
-    end
-  end
+  resources :products
+
   resources :girls
+  resource :cart
 
 
   root :to => "products#index"

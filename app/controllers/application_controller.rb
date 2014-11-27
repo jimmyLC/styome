@@ -8,20 +8,23 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_cart
+  around_action :setup_cart
 
   def current_cart
-    @current_cart ||= find_cart
+    @cart
   end
 
-  def find_cart
-    cart = Cart.find_by(:id => session[:cart_id])
-
-    unless cart.present?
-      cart = Cart.create
+  def setup_cart
+    if session[:cart]
+      @cart = Marshal::load(session[:cart])
+    else
+      @cart = Cart.new
     end
 
-    session[:cart_id] = cart.id
-    cart
+    yield #why????
+
+    session[:cart] = Marshal::dump(@cart)
   end
+
 
 end
