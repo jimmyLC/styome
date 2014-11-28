@@ -18,4 +18,5 @@ class Order < ActiveRecord::Base
   def set_total
     self.total = self.order_items.map{ |i| i.amount }.sum
   end
+
 end

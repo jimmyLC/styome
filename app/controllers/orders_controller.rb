@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
     end
 
     if @order.save
+      OrderConfirm.confirm(@order).deliver
       current_cart.clear
       redirect_to root_path
     else
