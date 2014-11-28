@@ -23,8 +23,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @photo = @product.photos.build
-
+    if @photo.nil?
+      @photo = @product.photos.build
+    end
   end
 
   def update

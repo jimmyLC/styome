@@ -6,9 +6,10 @@ class Cart
   end
 
   def add_item(product_id, quantity)
-    product_id.to_i
-    quantity.to_i
-    product = Product.find(product_id) #????? why
+    product_id = product_id.to_i
+    quantity = quantity.to_i
+
+    product = Product.find(product_id) #check if product exist
 
     item = @items.find{ |x| x[:product_id] == product_id} #when exist
 
@@ -20,8 +21,9 @@ class Cart
   end
 
   def update(product_id, quantity)
-    product_id.to_i
-    quantity.to_i
+    product_id = product_id.to_i
+    quantity = quantity.to_i
+
     item = @items.find{ |x| x[:product_id] == product_id}
 
     item[:quantity] = quantity
@@ -29,7 +31,7 @@ class Cart
   end
 
   def remove(product_id)
-    @items.delete_if{ |x| x[:product_id] == product_id }
+    @items.delete_if{ |x| x[:product_id] == product_id.to_i }
   end
 
   def products
