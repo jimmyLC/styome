@@ -13,6 +13,8 @@
       <%= link_to "Styo.me", products_path, :class => "navbar-brand" %>
     </div>
     <ul class="nav navbar-nav">
+      <!-- fb login -->
+      <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)%></li>
       <% if current_user %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><%= "Hi! #{current_user.email}" %> <b class="caret"></b></a>

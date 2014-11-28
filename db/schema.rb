@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127073720) do
+ActiveRecord::Schema.define(version: 20141128070538) do
 
   create_table "girls", force: true do |t|
     t.string   "name"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20141127073720) do
 
   create_table "photos", force: true do |t|
     t.integer  "product_id"
-    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "images_file_name"
@@ -58,6 +57,7 @@ ActiveRecord::Schema.define(version: 20141127073720) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "girl_id"
+    t.string   "image"
   end
 
   create_table "users", force: true do |t|
@@ -74,6 +74,12 @@ ActiveRecord::Schema.define(version: 20141127073720) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin_id",               default: false
+    t.string   "name"
+    t.string   "image"
+    t.string   "uid"
+    t.string   "provider"
+    t.string   "fb_token"
+    t.string   "fb_expires_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
