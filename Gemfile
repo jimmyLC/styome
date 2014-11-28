@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
+  gem "letter_opener"
   gem 'rspec-rails'
   gem 'better_errors'
   gem 'spring'
@@ -32,6 +33,7 @@ group :development do
   gem 'capistrano-passenger'
 end
 
+gem 'omniauth-facebook'
 gem 'mysql2'
 gem 'bootstrap-sass', '~> 3.3.1'
 
