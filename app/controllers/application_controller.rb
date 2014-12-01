@@ -4,9 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def admin_reqired
-    current_user.admin?
+    current_user && current_user.admin?
   end
 
+  helper_method :admin_reqired
   helper_method :current_cart
   around_action :setup_cart
 

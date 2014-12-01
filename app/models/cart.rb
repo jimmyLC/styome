@@ -47,6 +47,10 @@ class Cart
     }
   end
 
+  def count
+    @items.count
+  end
+
   def total
     products.map{ |p| p[:amount] }.sum
   end
