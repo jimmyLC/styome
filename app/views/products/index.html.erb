@@ -9,19 +9,18 @@
     <li><span>Image 07</span><div><h3></h3></div></li>
 </ul>
 
-<div class="all_products">
-  <h1>show product</h1>
+<div class="row">
+    <h1>show product</h1>
     <% @products.each do |p| %>
-  <div>
-    <%= render_product_photo(p.main_photo) %>
+  <div class="col-md-4 pin ">
+    <%= render_product_photo(p.main_photo) %><br>
     <%= link_to p.title, product_path(p) %>
-<!--     <%= p.description %>
-    <%= p.price %>
-    <%= p.quantity %> -->
     <%= link_to "edit", edit_product_path(p) %>
     <%= link_to "destroy", product_path(p), method: :delete %>
-    <% end %>
-  </div>
+  </div><% end %>
+</div>
+
+
 
 <% if admin_reqired %>
 <h1>create product</h1>
