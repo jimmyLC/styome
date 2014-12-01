@@ -1,29 +1,38 @@
-<h2>Cart</h2>
+<h2>購物車</h2>
 
 <%= form_tag "/cart", method: :patch do %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Qty</th>
-    <th>Amount</th>
-  </tr>
-  <% current_cart.products.each do |i| %>
-  <tr>
-    <td><%= i[:title] %></td>
-    <td><%= i[:price] %></td>
-    <td>
-      <%= text_field_tag "item[#{i[:product_id]}]", i[:quantity] %>
-      <%= link_to "Remove", cart_path(product_id: i[:product_id]), method: :delete %>
-    </td>
-    <td><%= i[:amount] %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <td>Total: <%= current_cart.total %></td>
-  </tr>
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>產品</th>
+      <th>價錢</th>
+      <th>數量</th>
+      <th>總價</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_cart.products.each do |i| %>
+    <tr class="info">
+      <td></td>
+      <td><%= i[:title] %></td>
+      <td><%= i[:price] %></td>
+      <td>
+        <%= text_field_tag "item[#{i[:product_id]}]", i[:quantity] %>
+        <%= link_to "Remove", cart_path(product_id: i[:product_id]), method: :delete %>
+      </td>
+      <td><%= i[:amount] %></td>
+    </tr><% end %>
+     <tr>
+       <td><h5><strong>總共: </strong></h5></td>
+       <td><h5><strong><%="$#{current_cart.total} NTD"%></strong></h5></td>
+       <td></td>
+       <td></td>
+       <td></td>
+     </tr>
+  </tbody>
 </table>
-<%= submit_tag "update" %>
+  <%= submit_tag "更新數量" %>
+  <p></p>
 <% end %>
-
-<%= button_to "buy it", new_order_path, method: :get %>
+<%= button_to "購買", new_order_path, method: :get, :class => "btn btn-primary btn-lg" %>

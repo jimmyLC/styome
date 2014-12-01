@@ -25,14 +25,15 @@
             </li>
             <li>
                <%= link_to("edit password", edit_registration_path(:user)) %>
-            </li>
+            </li></ul>
       <% else %>
+          <ul class="nav navbar-nav">
           <li>
             <%= link_to("sign up", new_registration_path(:user)) %>
           </li>
           <li>
             <%= link_to("log in", new_session_path(:user)) %>
-          </li>
+          </li></ul>
       <% end %>
         </ul>
       </li>
