@@ -1,11 +1,17 @@
-<p><%= "Hi #{current_user.try(:name)}" %></p>
-<h1>show girl</h1>
-<% @girls.each do |g| %>
-  <%= link_to g.name, girl_path(g) %>
-<% end %>
+<!-- slider -->
+<ul class="cb-slideshow">
+    <li><span>Image 01</span><div><h3>re·lax·a·tion</h3></div></li>
+    <li><span>Image 02</span><div><h3>qui·e·tude</h3></div></li>
+    <li><span>Image 03</span><div><h3>bal·ance</h3></div></li>
+    <li><span>Image 04</span><div><h3>e·qua·nim·i·ty</h3></div></li>
+    <li><span>Image 05</span><div><h3>com·po·sure</h3></div></li>
+    <li><span>Image 06</span><div><h3>se·ren·i·ty</h3></div></li>
+    <li><span>Image 07</span><div><h3></h3></div></li>
+</ul>
 
-<h1>show product</h1>
-<% @products.each do |p| %>
+<div class="all_products">
+  <h1>show product</h1>
+    <% @products.each do |p| %>
   <div>
     <%= render_product_photo(p.main_photo) %>
     <%= link_to p.title, product_path(p) %>
@@ -14,10 +20,11 @@
     <%= p.quantity %> -->
     <%= link_to "edit", edit_product_path(p) %>
     <%= link_to "destroy", product_path(p), method: :delete %>
-    <%= button_to "加入購物車", cart_path(product_id: p.id, quantity: 1) %>
+    <% end %>
   </div>
-<% end %>
 
+<% if admin_reqired %>
 <h1>create product</h1>
 <%= render "form" %>
-<%= render "/common/cart" %>
+<% end %>
+</div>
