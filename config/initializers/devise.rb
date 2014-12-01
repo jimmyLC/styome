@@ -234,6 +234,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   configfb = YAML.load(File.read("#{Rails.root}/config/fb.yml"))[Rails.env]
 
+
   config.omniauth :facebook,configfb["app_id"], configfb["secret"],
                   :scope => 'email, user_photos, read_friendlists, read_stream, publish_actions'
 
