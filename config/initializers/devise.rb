@@ -232,8 +232,9 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
+  configfb = YAML.load(File.read("#{Rails.root}/config/fb.yml"))[Rails.env]
 
-  config.omniauth :facebook, '608626905925870', 'e78a6106fae5c8e140c1499f66a7aacb',
+  config.omniauth :facebook,config["app_id"], config["secret"],
                   :scope => 'email, user_photos, read_friendlists, read_stream, publish_actions'
 
   # ==> Warden configuration
