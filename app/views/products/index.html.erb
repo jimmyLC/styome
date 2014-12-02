@@ -12,7 +12,7 @@
     <h1>show product</h1>
     <% @products.each do |p| %>
   <div class="col-md-4 pin ">
-    <%= render_product_photo(p.main_photo) %><br>
+    <%= image_tag p.avatar.url(:medium) %><br>
     <%= link_to p.title, product_path(p) %>
     <%= button_to "加入購物車", cart_path(product_id: p.id, quantity: 1) %>
     <% if admin_reqired %>

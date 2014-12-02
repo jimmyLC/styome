@@ -1,12 +1,10 @@
-<%= simple_form_for @product do |f| %>
+<%= simple_form_for @product, :html => {:multipart => true} do |f| %>
   <%= f.input :title, label: "product name: " %>
   <%= f.input :description, label: "description: " %>
   <%= f.input :price, label: "price: " %>
   <%= f.input :quantity, label: "quantity: " %>
-    <%= f.simple_fields_for :photos do |p| %>
-      <%= p.input :images, :as => :file %>
-    <% end %>
+  <%= f.input :avatar, :as => :file %>
 
-    <%= f.association :girl, as: :radio_buttons %>
+<!--     <%= f.association :girl, as: :radio_buttons %> -->
   <%= f.button :submit %>
 <% end %>

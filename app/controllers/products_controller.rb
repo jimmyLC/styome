@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :find_params, only: [:add_to_cart, :show, :edit, :update, :destroy]
+  before_action :find_params, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   def index
     @products = Product.all
@@ -23,9 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    if @photo.nil?
-      @photo = @product.photos.build
-    end
+
   end
 
   def update
@@ -41,11 +39,6 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
-  def add_to_cart
-    @product = Product.find(params[:id])
-    current_cart.add_product_to_cart
-  end
-
   private
 
   def find_params
@@ -53,6 +46,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:title, :description, :price, :girl_id, :quantity, :photos_attributes => [:images])
+    params.require(:product).permit(:title, :description, :price, :girl_id, :quantity, :avatar)
   end
 end
