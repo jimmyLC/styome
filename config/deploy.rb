@@ -25,7 +25,7 @@ set :deploy_to, '/home/deploy/styome'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml config/secrets.yml config/email.yml config/fb.yml}
+set :linked_files, %w{config/database.yml config/secrets.yml config/email.yml config/fb.yml config/newrelic.yml}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
