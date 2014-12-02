@@ -1,5 +1,5 @@
 <h1>show product</h1>
-<%= render_product_photo(@product.main_photo) %>
+<%= image_tag @product.avatar.url(:medium) %>
 <ul>
   <li><%= @product.title %></li>
   <li><%= @product.description %></li>
