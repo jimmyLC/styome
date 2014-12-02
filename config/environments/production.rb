@@ -78,6 +78,6 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "http://106.187.103.10/" }
-  config.action_mailer.smtp_settings = YAML.load(File.read("#{Rails.root}/config/email.yml"))
+  config.action_mailer.smtp_settings = YAML.load(File.read("#{Rails.root}/config/email.yml")).symbolize_keys
 
 end
