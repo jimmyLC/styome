@@ -16,23 +16,23 @@
     <tr class="info">
       <td></td>
       <td><%= i[:title] %></td>
-      <td><%= i[:price] %></td>
+      <td><span class="price"><%= i[:price] %></span></td>
       <td>
-        <%= text_field_tag "item[#{i[:product_id]}]", i[:quantity] %>
+        <%= number_field_tag "item[#{i[:product_id]}]", i[:quantity], :min => 0, :class => "qty" %>
         <%= link_to "Remove", cart_path(product_id: i[:product_id]), method: :delete %>
       </td>
       <td><%= i[:amount] %></td>
     </tr><% end %>
      <tr>
        <td><h5><strong>總共: </strong></h5></td>
-       <td><h5><strong><%="$#{current_cart.total} NTD"%></strong></h5></td>
+       <td><h5><strong><span class="totalMoney"><%="$#{current_cart.total} NTD"%></span></strong></h5></td>
        <td></td>
        <td></td>
        <td></td>
      </tr>
   </tbody>
 </table>
-  <%= submit_tag "更新數量" %>
+<!--   <%= submit_tag "更新數量" %> -->
   <p></p>
 <% end %>
 <%= button_to "購買", new_order_path, method: :get, :class => "btn btn-primary btn-lg" %>
