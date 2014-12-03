@@ -13,7 +13,7 @@
     <div class="navbar-header">
       <%= link_to "Styo.me", products_path, :class => "navbar-brand" %>
     </div>
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav navbar-right">
       <!-- fb login -->
       <li><%= link_to "Facebook Login", user_omniauth_authorize_path(:facebook)%></li>
       <% if current_user %>
@@ -35,12 +35,11 @@
             <%= link_to("log in", new_session_path(:user)) %>
           </li></ul>
       <% end %>
-        </ul>
       </li>
 
       <!-- 購物車 -->
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "購物車(#{current_cart.count})", cart_path(current_cart) %></li>
+
+        <li id="event_area"><%= link_to "購物車(#{current_cart.count})", cart_path(current_cart) %></li>
       <!-- 訂單 -->
         <li><%= link_to "訂單", orders_path %></li>
       </ul>
