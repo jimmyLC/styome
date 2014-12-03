@@ -3,8 +3,8 @@
 <ul>
   <li><%= @product.title %></li>
   <li><%= @product.description %></li>
-  <li><%= @product.quantity %></li>
-  <li><%= @product.price %></li>
+<!--   <li><%= @product.quantity %></li> -->
+  <p>優惠價: $<%= @product.price %></p>
   <%= button_to "加入購物車", cart_path(product_id: @product.id, quantity: 1) %>
 </ul>
 

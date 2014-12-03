@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Styome</title>
+  <title>Styome beta</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,6 +12,9 @@
     <div class="container">
     <div class="navbar-header">
       <%= link_to "Styo.me", products_path, :class => "navbar-brand" %>
+      <ul class="nav navbar-nav">
+        <li>Beta</li>
+      </ul>
     </div>
     <ul class="nav navbar-nav navbar-right">
       <!-- fb login -->
