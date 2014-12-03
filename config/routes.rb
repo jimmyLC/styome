@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :products
+  get 'search', to: 'search#search'
 
   resources :girls
   resource :cart
