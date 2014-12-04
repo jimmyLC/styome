@@ -1,0 +1,14 @@
+<h1>Product Search</h1>
+<%= form_for search_path, method: :get do |f| %>
+  <%= f.label "Search for" %>
+  <%= text_field_tag :q, params[:q] %>
+  <%= submit_tag "Go", name: nil %>
+<% end %>
+
+<ul>
+  <% @products.each do |product| %>
+  <li>
+    <%= link_to product.title, product_path(product.id) %>
+  </li>
+  <% end %>
+</ul>
