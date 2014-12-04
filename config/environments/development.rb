@@ -35,3 +35,4 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
 
 end
+Elasticsearch::Model.client = Elasticsearch::Client.new host: 'http://localhost:9200'

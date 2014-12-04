@@ -8,7 +8,7 @@
 <ul>
   <% @products.each do |product| %>
   <li>
-    <%= link_to product.title %>
+    <%= link_to product.title, product_path(product.id) %>
   </li>
   <% end %>
 </ul>
