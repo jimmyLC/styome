@@ -31,6 +31,7 @@ group :development do
   gem 'spring'
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
+  gem 'binding_of_caller'
 end
 
 gem 'omniauth-facebook'
