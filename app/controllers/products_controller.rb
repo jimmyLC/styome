@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
     @product = Product.new
     @photo = @product.photos.build
+
   end
 
   def show

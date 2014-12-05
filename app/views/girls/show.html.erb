@@ -1,7 +1,7 @@
 <h1><%= "Show #{@girl.name} products" %></h1>
 
 <% @girl.products.each do |p| %>
-    <%= render_product_photo(p.main_photo) %>
+    <%= link_to (image_tag p.avatar.url(:medium)), product_path(p) %>
     <%= link_to p.title, product_path(p) %>
     <%= p.description %>
     <%= p.price %>
