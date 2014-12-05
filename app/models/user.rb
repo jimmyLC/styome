@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
 
   has_one :girl
   has_many :orders
-  validates_uniqueness_of :email
 
   def admin?
     admin_id

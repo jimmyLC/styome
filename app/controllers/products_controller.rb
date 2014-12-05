@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :find_params, only: [:show, :edit, :update, :destroy]
+  before_action :find_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   def index
     @products = Product.all
@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
 
   private
 
-  def find_params
+  def find_product
     @product = Product.find(params[:id])
   end
 

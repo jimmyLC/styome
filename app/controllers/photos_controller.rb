@@ -27,7 +27,7 @@ class PhotosController < ApplicationController
   end
 
   def find_product
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:product_id])
   end
 
   def photo_params
