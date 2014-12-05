@@ -5,8 +5,22 @@ class CartsController < ApplicationController
   end
 
   def update
+    failed_products = []
     params[:item].each do |product_id, quantity|
-      current_cart.update(product_id, quantity)
+      @product = Product.find(product_id)
+      if quantity.to_i > @product.quantity
+        failed_products << @product
+      end
+    end
+
+    if failed_products.empty?
+      params[:item].each do |product_id, quantity|
+        current_cart.update(product_id, quantity)
+      end
+      flash[:notice] = "修改數量成功"
+    else
+      product_names = failed_products.map{ |x| x.title }.join(", ")
+      flash[:alert] = "#{product_names} 已超過商品數量"
     end
 
     redirect_to :back
@@ -21,7 +35,7 @@ class CartsController < ApplicationController
   def destroy
     pid = params[:product_id]
     current_cart.remove(pid)
-    flash[:notice] = "remove successful"
+    flash[:notice] = "商品已移除"
 
     redirect_to :back
   end

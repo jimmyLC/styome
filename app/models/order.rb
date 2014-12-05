@@ -4,7 +4,7 @@ class Order < ActiveRecord::Base
 
   before_save :set_total
 
-  # validates_numericality_of :total, :greater_than => 0
+  # validates_numericalsity_of :total, :greater_than => 0
   # validate :check_enough_quantity
 
   protected
