@@ -4683,6 +4683,9 @@ a.thumbnail.active {
   color: #222222;
 }
 .alert {
+  position: absolute;
+  right: 100px;
+  z-index: 100;
   padding: 15px;
   margin-bottom: 21px;
   border: 1px solid transparent;
