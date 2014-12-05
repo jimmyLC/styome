@@ -1,29 +1,24 @@
-== README
+實作一個 E-commerce 網站
+UserStory
+    [使用者]
+    (未登入)使用者可以瀏覽商品
+    (未登入)使用者可以搜尋商品
+    (未登入)使用者可以放入購物車(Shopping Car)
+           /庫存不足的商品無法放入購物車(缺貨)
+    (未登入)使用者可以瀏覽購物車頁面，調整數量或移除商品
+    (可用FB登入)
+    (登入後)使用者可以結帳成立訂單
+    使用者輸入付款方式、送貨地址
+    成立訂單時，會檢查庫存量是否足夠
+    [管理者]
+    管理員可以上架商品
+    管理訂單狀態
+    管理員可以看到訂單一覽，可以依照不同狀態瀏覽
+    管理者，商品下單時，消費者應該收到一張訂單的通知信 
+    當消費者確定購物結帳後，該商品的庫存必須按照數量減少
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+需要使用到的技術：
+Rspec/ elasticsearch/ omniauth-facebook整合devise
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-[ ![Codeship Status for jimmyonrails/styome](https://codeship.com/projects/ab0ec370-5b33-0132-e09a-727edfa43f5b/status)](https://codeship.com/projects/50476)
+伺服器部署：
+Linode/ Capistrano自動化部屬/ Nginx

@@ -1,10 +1,10 @@
 <%= render "/common/cart" %>
 
-<h1>New a order</h1>
+<h1>填寫訂單內容</h1>
 
 <%= simple_form_for @order do |f| %>
-  <%= f.input :receive_name, label: "name: " %>
-  <%= f.input :receive_address, label: "address: " %>
-  <%= f.input :payment_type, collection: [ ["信用卡", "credit_card"], ["ATM轉帳", "atm"] ]%>
-  <%= f.button :submit %>
+  <%= f.input :receive_name, label: "姓名: " %>
+  <%= f.input :receive_address, label: "地址: " %>
+  <%= f.input :payment_type, collection: [["ATM轉帳", "atm"]], label: "付款方式: " %>
+  <%= f.button :submit, "成立訂單" %>
 <% end %>

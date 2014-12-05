@@ -3,18 +3,9 @@ class Order < ActiveRecord::Base
   belongs_to :user
 
   before_save :set_total
-
-  # validates_numericalsity_of :total, :greater_than => 0
-  # validate :check_enough_quantity
+  validates_presence_of :receive_name, :receive_address, :payment_type
 
   protected
-
-  # def check_enough_quantity
-  #   self.order_items.each do |item|
-  #     error[:base] << "#{item.product.name} is Sold out" if item.quantity > item.product.quantity
-  #   end
-  # end
-
   def set_total
     self.total = self.order_items.map{ |i| i.amount }.sum
   end
