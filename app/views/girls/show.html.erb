@@ -1,11 +1,21 @@
-<h1><%= "Show #{@girl.name} products" %></h1>
+<h1><%= "#{@girl.name}" %></h1>
 
 <% @girl.products.each do |p| %>
-    <%= link_to (image_tag p.avatar.url(:medium)), product_path(p) %>
-    <%= link_to p.title, product_path(p) %>
-    <%= p.description %>
-    <%= p.price %>
-    <%= p.quantity %>
+<div class="row">
+
+<div class="pin ">
+<%= link_to (image_tag p.avatar.url), product_path(p) %>
+  <div>
+    <p><b><%= p.title %></b></p>
+    <p>描述： <%= p.description %></p>
+    <p>價錢： <%= p.price %></p>
+    <p>數量： <%= p.quantity %></p>
+    <%= button_to "加入購物車", cart_path(product_id: p.id, quantity: 1), :class => "btn btn-primary" %>
+
+    <% if admin_reqired %>
     <%= link_to "edit", edit_product_path(p) %>
     <%= link_to "destroy", product_path(p), method: :delete %>
+    <% end %>
+  </div>
+</div>
 <%end %>

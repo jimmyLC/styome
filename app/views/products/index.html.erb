@@ -2,98 +2,23 @@
     <div id="reel">
         <div id="header" class="item" data-width="400">
             <div class="inner">
+
                 <h1>STYO.ME</h1>
-                <p>hello world</p>
+                <!-- <p>hello world</p> -->
             </div>
         </div>
+        <% @girls.each do |g| %>
         <article class="item thumb" data-width="282">
-            <h2>Abby</h2>
-            <a href="#"><img src="images/styo1.jpg" alt=""></a>
+            <h2><%= g.name %></h2>
+            <%= link_to (image_tag g.avatar.url), girl_path(g)  %>
         </article>
-
-        <article class="item thumb" data-width="282">
-            <h2>Abby</h2>
-            <a href="#"><img src="images/styo2.jpg" alt=""></a>
-        </article>
-
-        <article class="item thumb" data-width="282">
-            <h2>Abby</h2>
-            <a href="#"><img src="images/styo3.jpg" alt=""></a>
-        </article>
-
-        <article class="item thumb" data-width="282">
-            <h2>Abby</h2>
-            <a href="#"><img src="images/styo4.jpg" alt=""></a>
-        </article>
-
-        <article class="item thumb" data-width="282">
-            <h2>Abby</h2>
-            <a href="#"><img src="images/styo5.jpg" alt=""></a>
-        </article>
-
-        <article class="item thumb" data-width="282">
-            <h2>Abby</h2>
-            <a href="#"><img src="images/styo6.jpg" alt=""></a>
-        </article>
-
-        <article class="item thumb" data-width="282">
-            <h2>Abby</h2>
-            <a href="#"><img src="images/styo7.jpg" alt=""></a>
-        </article>
-
-        <article class="item thumb" data-width="282">
-            <h2>Abby</h2>
-            <a href="#"><img src="images/styo8.jpg" alt=""></a>
-        </article>
+        <% end %>
     </div>
 </div>
-
-<div id="main">
-    <div id="reel">
-        <div id="header" class="item" data-width="400">
-            <div class="inner">
-                <h1>STYO.ME</h1>
-                <p>hello world</p>
-            </div>
-        </div>
-        <article class="item thumb" data-width="282">
-            <h2>Abby</h2>
-            <a href="#"><img src="images/styo1.jpg" alt=""></a>
-        </article>
-    </div>
-</div>
-
-
-
-
-
-<!-- product -->
-
-<!-- <h1>Show girls</h1>
-<% @girls.each do |g| %>
-    <%= link_to g.name, girl_path(g) %>
-<% end %>
-
-<div class="row">
-    <h1>show product</h1>
-    <% @products.each do |p| %>
-  <div class="col-md-4 pin ">
-    <%= link_to (image_tag p.avatar.url(:medium)), product_path(p) %><br>
-    <%= link_to p.title, product_path(p) %>
-    <p>優惠價: $<%= p.price %></p>
-    <p>數量： <%= p.quantity %></p>
-    <%= button_to "加入購物車", cart_path(product_id: p.id, quantity: 1) %>
-    <% if admin_reqired %>
-    <%= link_to "edit", edit_product_path(p) %>
-    <%= link_to "destroy", product_path(p), method: :delete %>
-    <% end %>
-  </div><% end %>
-</div>
-
 
 
 <% if admin_reqired %>
 <h1>create product</h1>
 <%= render "form" %>
-<% end %> -->
+<% end %>
 </div>

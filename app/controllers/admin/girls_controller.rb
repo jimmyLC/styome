@@ -38,6 +38,6 @@ class Admin::GirlsController < ApplicationController
   end
 
   def girl_params
-    params.require(:girl).permit(:name)
+    params.require(:girl).permit(:name, :avatar)
   end
 end
