@@ -7,15 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
     <div class="navbar-header">
+
       <%= link_to "Styo.me", products_path, :class => "navbar-brand" %>
       <ul class="nav navbar-nav">
         <li>Beta</li>
       </ul>
     </div>
+
+
     <ul class="nav navbar-nav navbar-right">
       <!-- fb login -->
 
@@ -40,42 +42,36 @@
           </li></ul>
       <% end %>
       </li>
-
       <!-- 購物車 -->
-
         <li id="event_area"><%= link_to "購物車(#{current_cart.count})", cart_path(current_cart) %></li>
       <!-- 訂單 -->
         <li><%= link_to "訂單", orders_path %></li>
       </ul>
 
-      <!-- 管理者 -->
-<!--       <ul class="nav navbar-nav">
-        <li><%= link_to("Manager", manager_girl_products_path(1))%></li>
-      </ul> -->
       </div>
   </nav>
 
+
 <div class="container">
 
-  <% if flash[:notice] %>
-    <div class="alert alert-dismissable alert-info">
-      <button type="button" class="close" data-dismiss="alert">×</button>
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
+      <% if flash[:notice] %>
+        <div class="alert alert-dismissable alert-info">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
 
-  <% if flash[:alert] %>
-    <div class="alert alert-dismissable alert-warning">
-      <button type="button" class="close" data-dismiss="alert">×</button>
-      <h5>Warning!</h5>
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-dismissable alert-warning">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <h5>Warning!</h5>
+          <%= flash[:alert] %>
+        </div>
+        </div>
+      <% end %>
 
 <%= yield %>
 </div>
-<footer>
 
-</footer>
 </body>
 </html>
