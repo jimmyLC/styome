@@ -3652,7 +3652,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
+  /*background-color: #eeeee;*/
 }
 .nav > li.disabled > a {
   color: #999999;
@@ -3831,7 +3831,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 45px;
+  min-height: 58px;
   margin-bottom: 21px;
   border: 1px solid transparent;
 }
@@ -4159,33 +4159,33 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #333333;
+  background-color: #fff;
   border-color: #222222;
 }
 .navbar-default .navbar-brand {
-  color: #ffffff;
+  color: #555;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #ffffff;
+  color: #555;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
-  color: #ffffff;
+  color: #555;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #ffffff;
+  color: #555;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #ffffff;
-  background-color: #272727;
+  color: #D64760;
+  /*background-color: #272727;*/
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #ffffff;
-  background-color: #272727;
+  color: #D64760;
+  /*background-color: #272727;*/
 }
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,
@@ -6331,7 +6331,7 @@ button.close {
 }
 .navbar {
   border: none;
-  font-size: 13px;
+  /*font-size: 13px;*/
   font-weight: 300;
 }
 .navbar .navbar-toggle:hover .icon-bar {

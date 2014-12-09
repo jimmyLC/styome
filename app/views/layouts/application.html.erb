@@ -11,7 +11,7 @@
     <div class="container">
     <div class="navbar-header">
 
-      <%= link_to "Styo.me", products_path, :class => "navbar-brand" %>
+      <%= link_to (image_tag "/images/logo2.png"), products_path, :class => "navbar-brand" %>
       <ul class="nav navbar-nav">
         <li>Beta</li>
       </ul>
@@ -33,12 +33,13 @@
       <% else %>
           <ul class="nav navbar-nav">
           <li><%= link_to "Facebook Login", user_omniauth_authorize_path(:facebook)%></li>
-          <li>
+<!--           <li>
             <%= link_to("sign up", new_registration_path(:user)) %>
           </li>
           <li>
             <%= link_to("log in", new_session_path(:user)) %>
-          </li></ul>
+          </li> -->
+        </ul>
       <% end %>
       </li>
       <!-- 購物車 -->

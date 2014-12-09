@@ -60,6 +60,7 @@
     height: 100%;
     overflow: hidden;
     -webkit-transition: -webkit-filter 0.25s ease-in-out;
+
   }
 
     #wrapper.overlayed
