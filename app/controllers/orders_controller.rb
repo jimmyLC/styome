@@ -18,13 +18,40 @@ class OrdersController < ApplicationController
                                 quantity: p[:quantity],
                                 amount: p[:amount] )
     end
-
     if @order.save
-      OrderConfirm.confirm(@order).deliver
       current_cart.clear
-      redirect_to root_path
+      @payment = PaypalPayment.build(@order, :return_url => approved_order_url(@order),
+                                             :cancel_url => root_url)
+      if @payment.create
+        redirect_to @order.paypal_approval_url
+      else
+        redirect_to root_path
+      end
+      # OrderConfirm.confirm(@order).deliver
     else
       render :new
+    end
+  end
+
+  def approved
+    @order = current_user.orders.find(params[:id])
+    if params[:paymentId]
+      @order.paypal_payer_id = params[:PayerID]
+      @order.paypal_return_at = Time.now
+      @order.save!
+    end
+  end
+
+  def execute
+    @order = current_user.orders.find(params[:id])
+    payment.execute
+
+    if payment.execute
+      flash[:notice] = "Paypal success"
+      redirect_to orders_path
+    else
+      flash[:notice] = "Paypal fail"
+      redirect_to orders_path
     end
   end
 

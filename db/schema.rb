@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141208110026) do
+ActiveRecord::Schema.define(version: 20141209084134) do
 
   create_table "girls", force: true do |t|
     t.string   "name"
@@ -41,7 +41,18 @@ ActiveRecord::Schema.define(version: 20141208110026) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "paypal_payment_id"
+    t.string   "paypal_state"
+    t.datetime "paypal_create_time"
+    t.datetime "paypal_update_time"
+    t.string   "paypal_approval_url"
+    t.string   "paypal_execute_url"
+    t.text     "paypal_error"
+    t.string   "paypal_payer_id"
+    t.datetime "paypal_return_at"
   end
+
+  add_index "orders", ["paypal_payment_id"], name: "index_orders_on_paypal_payment_id", using: :btree
 
   create_table "photos", force: true do |t|
     t.integer  "product_id"
