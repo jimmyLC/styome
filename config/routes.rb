@@ -16,7 +16,12 @@ Rails.application.routes.draw do
 
   resources :girls
   resource :cart
-  resources :orders
+  resources :orders do
+    member do
+      get :approved
+      post :execute
+    end
+  end
 
 
   root :to => "products#index"

@@ -7,7 +7,25 @@
 <%= simple_form_for @order do |f| %>
   <%= f.input :receive_name, label: "姓名: " %>
   <%= f.input :receive_address, label: "地址: " %>
-  <%= f.input :payment_type, collection: [["ATM轉帳", "atm"]], label: "付款方式: " %>
-  <%= f.button :submit, "成立訂單", :class => "btn btn-danger" %>
+  <%= f.input :payment_type, collection: [["ATM轉帳", "atm"],["信用卡", "credit"]], label: "付款方式: " %>
+
+    <%= image_submit_tag "https://www.paypalobjects.com/en_US/i/btn/x-click-but6.gif", :id => "paypal-button" %>
+
+    <%= f.button :submit, "成立訂單", :id => "atm" %>
 <% end %>
-</div>
+
+<script>
+  $('#paypal-button').hide();
+
+  $('#order_payment_type').change(function(){
+    if ($(this).val() == 'credit') {
+      $('#paypal-button').show();
+      $('#atm').hide();
+
+    } else {
+      $('#paypal-button').hide();
+      $('#atm').show();
+    }
+  });
+</script>
+
