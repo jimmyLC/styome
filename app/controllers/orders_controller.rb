@@ -21,9 +21,6 @@ class OrdersController < ApplicationController
     if @order.save
       current_cart.clear
 
-      #payment = PaypalPayment.build(@order, :return_url => "http://localhost:3000/orders/#{@order.id}/approved",
-      #                                       :cancel_url => 'http://localhost:3000')
-
       @payment = PaypalPayment.build(@order, :return_url => approved_order_url(@order),
                                              :cancel_url => root_url)
       if @payment.create
