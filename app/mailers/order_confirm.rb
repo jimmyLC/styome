@@ -10,6 +10,7 @@ class OrderConfirm < ActionMailer::Base
     @order = order
     @user = @order.user
     email = @user.email
+    @total = @order.total
 
     @message = "Thank you for order"
 
