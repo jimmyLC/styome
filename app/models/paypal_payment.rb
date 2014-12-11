@@ -11,7 +11,7 @@ class PaypalPayment
 
   def self.build(order, redirect_urls)
     self.new order, PayPal::SDK::REST::Payment.new({
-        :initent => "sale",
+        :intent => "sale",
         :payer => {
           :payment_method => "paypal"
         },

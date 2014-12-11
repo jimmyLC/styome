@@ -20,6 +20,10 @@ class OrdersController < ApplicationController
     end
     if @order.save
       current_cart.clear
+
+      #payment = PaypalPayment.build(@order, :return_url => "http://localhost:3000/orders/#{@order.id}/approved",
+      #                                       :cancel_url => 'http://localhost:3000')
+
       @payment = PaypalPayment.build(@order, :return_url => approved_order_url(@order),
                                              :cancel_url => root_url)
       if @payment.create
@@ -44,7 +48,7 @@ class OrdersController < ApplicationController
 
   def execute
     @order = current_user.orders.find(params[:id])
-    payment.execute
+    payment = PaypalPayment.find_by(@order)
 
     if payment.execute
       flash[:notice] = "Paypal success"
