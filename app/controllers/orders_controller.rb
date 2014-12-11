@@ -18,7 +18,8 @@ class OrdersController < ApplicationController
                                 quantity: p[:quantity],
                                 amount: p[:amount] )
     end
-    if @order.save
+
+    if @order.payment_type == "credit" && @order.save
       current_cart.clear
 
       @payment = PaypalPayment.build(@order, :return_url => approved_order_url(@order),
@@ -29,6 +30,11 @@ class OrdersController < ApplicationController
         redirect_to root_path
       end
       # OrderConfirm.confirm(@order).deliver
+    elsif @order.payment_type == "atm" && @order.save
+      OrderConfirm.confirm(@order).deliver
+      current_cart.clear
+      flash[:notice] = "感謝你的訂購"
+      redirect_to root_path
     else
       render :new
     end
@@ -48,7 +54,7 @@ class OrdersController < ApplicationController
     payment = PaypalPayment.find_by(@order)
 
     if payment.execute
-      flash[:notice] = "Paypal success"
+      flash[:notice] = "感謝你的訂購"
       redirect_to orders_path
     else
       flash[:notice] = "Paypal fail"
