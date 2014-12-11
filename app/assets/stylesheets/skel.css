@@ -64,7 +64,9 @@
   }
 
   .row > * {
-    float: left;
+/*    float: left;*/
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .row:after, .row:before {
@@ -88,12 +90,12 @@
 
       .row > * {
         /* padding: (gutters.horizontal) 0 0 (gutters.vertical) */
-        padding: 40px 0 0 40px;
+        /*padding: 40px 0 0 40px;*/
       }
 
       .row {
         /* margin: -(gutters.horizontal) 0 -1px -(gutters.vertical) */
-        margin: -40px 0 -1px -40px;
+        /*margin: -40px 0 -1px -40px;*/
       }
 
       .row.uniform > * {
