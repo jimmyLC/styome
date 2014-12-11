@@ -1,18 +1,21 @@
-<h1>show product</h1>
+<div class="row">
+<div class="pin">
+<h1><%= @product.title %></h1>
 <%= image_tag @product.avatar.url(:medium) %>
 <ul>
-  <li><%= @product.title %></li>
   <li><%= @product.description %></li>
 <!--   <li><%= @product.quantity %></li> -->
-  <p>優惠價: $<%= @product.price %></p>
-  <%= button_to "加入購物車", cart_path(product_id: @product.id, quantity: 1) %>
+  <strong><p>優惠價: $<%= @product.price %></p></strong>
+  <%= button_to "加入購物車", cart_path(product_id: @product.id, quantity: 1), :class => "btn btn-primary" %>
 </ul>
-
 
 <ul><% @photos.each do |photo| %>
-  <li><%= image_tag photo.images.url(:medium) %></li>
+  <li><%= image_tag photo.images.url %></li>
 <% end %>
 </ul>
+<div class="fb-comments" data-href="<%= request.original_url %>" data-numposts="5" data-colorscheme="light"></div>
+</div>
+</div>
 
 
 
