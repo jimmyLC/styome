@@ -41,6 +41,10 @@
           </li> -->
         </ul>
       <% end %>
+       <!-- 後台 -->
+      <% if admin_reqired %>
+      <li><%= link_to "後台管理", admin_girls_path %> </li>
+      <% end %>
       </li>
       <!-- 購物車 -->
         <li id="event_area"><%= link_to "購物車(#{current_cart.count})", cart_path(current_cart) %></li>

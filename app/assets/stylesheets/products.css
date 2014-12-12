@@ -2,6 +2,31 @@
 @import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
 @import url('font-awesome.min.css');
 
+    .pingirl{
+        background: #FEFEFE;
+        border: 2px solid #FAFAFA;
+        box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+        /*margin: 0px 0px 10px 0px;*/
+        -webkit-column-break-inside: avoid;
+        -moz-column-break-inside: avoid;
+        column-break-inside: avoid;
+        padding: 15px;
+        padding-bottom: 5px;
+        background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+        opacity: 1;
+
+        -webkit-transition: all .2s ease;
+        -moz-transition: all .2s ease;
+        -o-transition: all .2s ease;
+        transition: all .2s ease;
+        float: left;
+        margin-left: 200px;
+    }
+
+    .new{
+        margin-left: 100px;
+        text-align: center;
+    }
     .fb-comments{
         overflow: auto;
     }

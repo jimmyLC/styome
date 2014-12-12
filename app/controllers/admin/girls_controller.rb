@@ -6,6 +6,7 @@ class Admin::GirlsController < ApplicationController
   def index
     @girls = Girl.all
     @girl = Girl.new
+    @product = Product.new
   end
 
 

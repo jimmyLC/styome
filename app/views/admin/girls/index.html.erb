@@ -1,20 +1,25 @@
 <div class="container">
 <p>this is admin page</p>
 <h1>All girls</h1>
+    <div class="pingirl">
+    <% @girls.each do |g| %>
+      <p><%= g.name %></p>
+      <%= image_tag g.avatar.url %>
+      <%= link_to "edit", edit_admin_girl_path(g) %>
+      <%= link_to "destroy", admin_girl_path(g), method: :delete %></br>
+    <% end %>
+          <h1>Add new girl</h1>
+          <%= simple_form_for [:admin, @girl] do |f| %>
+          <p><%= f.input :name, label: "Name: " %></p>
+          <p><%= f.input :avatar, :as => :file %></p>
+          <%= f.button :submit %>
+        <% end %>
 
-<% @girls.each do |g| %>
-  <p><%= g.name %></p>
-  <%= image_tag g.avatar.url %>
-  <%= link_to "edit", edit_admin_girl_path(g) %>
-  <%= link_to "destroy", admin_girl_path(g), method: :delete %></br>
-<% end %>
 
+    </div>
+        <div class="pingirl new">
 
-
-<h1>Add new girl</h1>
-<%= simple_form_for [:admin, @girl] do |f| %>
-  <p><%= f.input :name, label: "Name: " %></p>
-  <p><%= f.input :avatar, :as => :file %></p>
-  <%= f.button :submit %>
-<% end %>
+          <h1>create product</h1>
+          <%= render "common/form_product" %>
+        </div>
 </div>

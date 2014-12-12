@@ -1,0 +1,9 @@
+<%= simple_form_for @product, :url => products_path, :html => {:multipart => true} do |f| %>
+  <%= f.input :title, label: "product name: " %>
+  <%= f.input :description, label: "description: " %>
+  <%= f.input :price, label: "price: " %>
+  <%= f.input :quantity, label: "quantity: " %>
+  <%= f.input :avatar, :as => :file %>
+  <%= f.association :girl, as: :radio_buttons %>
+  <%= f.button :submit %>
+<% end %>
