@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   def index
     @products = Product.all
     @girls = Girl.all
@@ -38,6 +38,14 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     redirect_to products_path
+  end
+
+  def search
+    if params[:q].nil?
+      @products = []
+    else
+      @products = Product.search(params[:q]).records
+    end
   end
 
   private

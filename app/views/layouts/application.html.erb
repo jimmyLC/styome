@@ -14,6 +14,17 @@
       <%= link_to (image_tag "/images/logo2.png"), products_path, :class => "navbar-brand" %>
       <ul class="nav navbar-nav">
         <li>Beta</li>
+
+      </ul>
+      <!-- search   -->
+      <ul class="nav navbar-nav">
+        <li><br>
+          <%= form_tag search_products_path, method: :get do %>
+            <%= label_tag "找商品" %>
+            <%= text_field_tag :q, params[:q] %>
+            <%= submit_tag "搜尋", name: nil %>
+          <% end %>
+        </li>
       </ul>
     </div>
 

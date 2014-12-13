@@ -11,8 +11,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products
-  get 'search', to: 'search#search'
+  resources :products do
+    collection do
+      get :search
+    end
+  end
+
+  # get 'search', to: 'product#search'
 
   resources :girls
   resource :cart
